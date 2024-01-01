@@ -5,6 +5,7 @@ let gameOver = false;
 let board;
 let rows = 6;
 let columns = 7;
+var currColumns;
 
 window.onload = function () {
   setGame();
@@ -12,6 +13,7 @@ window.onload = function () {
 
 function setGame() {
   board = [];
+  currColumns = [5, 5, 5, 5, 5, 5, 5];
 
   for (let r = 0; r < rows; r++) {
     let row = [];
@@ -37,8 +39,13 @@ function setPiece() {
   let r = parseInt(coordinates[0]);
   let c = parseInt(coordinates[1]);
 
+  r = currColumns[c];
+  if (r < 0) {
+    return;
+  }
+
   board[r][c] = currPlayer;
-  let tile = this;
+  let tile = document.querySelector(r.toString() + "-" + c.toString());
 
   if (currPlayer == playerRed) {
     tile.classList.add("red-piece");
@@ -47,4 +54,7 @@ function setPiece() {
     tile.classList.add("yellow-piece");
     currPlayer = playerRed;
   }
+
+  r -= 1;
+  currColumns[c] = r;
 }
