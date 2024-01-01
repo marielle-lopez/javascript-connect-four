@@ -1,0 +1,9 @@
+@use "./partials/mixins";
+
+.body {
+  @include mixins.body;
+}
+
+.board {
+  @include mixins.board;
+}
