@@ -11,3 +11,11 @@
 .tile {
   @include mixins.tile;
 }
+
+.red-piece {
+  @include mixins.red-piece;
+}
+
+.yellow-piece {
+  @include mixins.yellow-piece;
+}
