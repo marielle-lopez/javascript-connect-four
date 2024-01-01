@@ -7,3 +7,7 @@
 .board {
   @include mixins.board;
 }
+
+.tile {
+  @include mixins.tile;
+}

@@ -21,7 +21,7 @@ function setGame() {
       let tile = document.createElement("div");
       tile.classList.add(r.toString() + "-" + c.toString());
       tile.classList.add("tile");
-      document.querySelector("board").appendChild(tile);
+      document.querySelector(".board").appendChild(tile);
     }
     board.push(row);
   }
