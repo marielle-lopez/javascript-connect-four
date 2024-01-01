@@ -19,10 +19,32 @@ function setGame() {
       row.push(" ");
 
       let tile = document.createElement("div");
-      tile.classList.add(r.toString() + "-" + c.toString());
+      tile.id(r.toString() + "-" + c.toString());
       tile.classList.add("tile");
+      tile.addEventListener("click", setPiece);
       document.querySelector(".board").appendChild(tile);
     }
     board.push(row);
+  }
+}
+
+function setPiece() {
+  if (gameOver) {
+    return;
+  }
+
+  let coordinates = this.id.split("-");
+  let r = parseInt(coordinates[0]);
+  let c = parseInt(coordinates[1]);
+
+  board[r][c] = currPlayer;
+  let tile = this;
+
+  if (currPlayer == playerRed) {
+    tile.classList.add("red-piece");
+    currPlayer = playerYellow;
+  } else {
+    tile.classList.add("yellow-piece");
+    currPlayer = playerRed;
   }
 }
